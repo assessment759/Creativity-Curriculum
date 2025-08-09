@@ -232,13 +232,39 @@ const LanguageLiteracy = () => {
         <section className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 mb-16 border border-gray-200 text-center">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Video Enactments</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Video demonstrations of language and literacy learning experiences will be embedded here, showcasing developmentally
-            appropriate activities across different age groups.
+            Educational videos demonstrating language and literacy activities for early childhood development.
           </p>
-          <div className="bg-gray-200 border-2 border-dashed border-gray-400 rounded-xl py-16 text-gray-600 italic">
-            Video enactments from the Language & Literacy curriculum will be embedded here.
-            <br />
-            <small className="text-gray-500 not-italic">(Videos will be added during the recording phase of the assessment)</small>
+                                        <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-xl p-4 shadow-sm border">
+              <h3 className="text-lg font-semibold mb-3 text-gray-800">Phonics Song - Learn to Read</h3>
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/oVtzNpzuvoA"
+                  title="Learn with Ms Rachel - Phonics Song - Learn to Read"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-4 shadow-sm border">
+              <h3 className="text-lg font-semibold mb-3 text-gray-800">4 Stages to Developing Early Literacy</h3>
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/v3evqVRXnok"
+                  title="4 Stages to Developing Early Literacy in Children"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
+              </div>
+            </div>
           </div>
         </section>
 

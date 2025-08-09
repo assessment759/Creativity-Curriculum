@@ -247,13 +247,39 @@ const Art = () => {
         <section className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 mb-16 border border-gray-200 text-center">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Video Enactments</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Video demonstrations of art learning experiences will be embedded here, showcasing developmentally
-            appropriate activities across different age groups.
+            Educational videos demonstrating art activities and techniques for early childhood development.
           </p>
-          <div className="bg-gray-200 border-2 border-dashed border-gray-400 rounded-xl py-16 text-gray-600 italic">
-            Video enactments from the Art curriculum will be embedded here.
-            <br />
-            <small className="text-gray-500 not-italic">(Videos will be added during the recording phase of the assessment)</small>
+                                                            <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-xl p-4 shadow-sm border">
+              <h3 className="text-lg font-semibold mb-3 text-gray-800">Famous Art and Artists for Kids</h3>
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/IldjU2v0EBw"
+                  title="Famous Art and Artists for Kids"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl p-4 shadow-sm border">
+              <h3 className="text-lg font-semibold mb-3 text-gray-800">First Day of Kindergarten Art</h3>
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/sWjT0zCjw0s"
+                  title="A Winning Lesson for the First Day of Kindergarten Art"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-lg"
+                ></iframe>
+              </div>
+            </div>
           </div>
         </section>
 
