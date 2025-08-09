@@ -1,37 +1,8 @@
-import { gsap } from 'gsap';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { FiClock, FiGrid, FiTarget, FiUsers } from 'react-icons/fi';
 import CollapsibleTranscript from '../components/CollapsibleTranscript';
 
 const MathematicsNumeracy = () => {
-  const headerRef = useRef(null);
-  const sectionsRef = useRef(null);
-  const experiencesRef = useRef(null);
-
-  useEffect(() => {
-    // Animate page elements on mount
-    if (headerRef.current) {
-      gsap.fromTo(headerRef.current.children,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", delay: 0.3 }
-      );
-    }
-
-    if (sectionsRef.current) {
-      gsap.fromTo(sectionsRef.current.children,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out", delay: 0.8 }
-      );
-    }
-
-    if (experiencesRef.current) {
-      gsap.fromTo(experiencesRef.current.querySelectorAll('.age-group'),
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 0.6, stagger: 0.2, ease: "power2.out", delay: 1.2 }
-      );
-    }
-  }, []);
-
   const learningExperiences = [
     {
       ageGroup: '0-2 years',
@@ -109,19 +80,19 @@ const MathematicsNumeracy = () => {
 
   const transcriptContent = `
     <h4>Mathematics & Numeracy in Early Childhood Education</h4>
-    <p>Mathematics early experiences build number sense, spatial reasoning, measurement understanding and problem solving. Hands-on play with counting, sorting, patterning and measurement develops conceptual understanding and supports later formal maths. Numeracy is embedded across daily routines (snack time, block play) and through purposeful games that promote estimation, comparison and reasoning. Encouraging mathematical talk and modelling strategies supports flexible thinking and fosters confidence with quantitative concepts.</p>
+    <p>Mathematics education in early childhood builds foundational number sense, spatial reasoning, measurement understanding, and problem-solving skills through hands-on exploration and play. Young children naturally engage with mathematical concepts through counting, sorting, patterning, and measuring activities embedded in daily routines and purposeful play experiences. Mathematical learning supports logical thinking, pattern recognition, and analytical skills that transfer across domains. Early numeracy experiences foster confidence with quantitative concepts and prepare children for formal mathematical instruction.</p>
 
     <h4>Theoretical Foundations</h4>
-    <p>Constructivist approaches (Piaget) show that children build mathematical understanding through interaction with materials and peers. Sociocultural theories emphasise guided participation, language and cultural tools for counting and problem solving. Number sense frameworks prioritise subitising, cardinality and pattern recognition. Problem-solving models encourage heuristic strategies: act, represent, check. Playful, context-rich tasks support transfer to abstract representations and formal notation as children mature.</p>
+    <p>Piaget's constructivist theory demonstrates that children build mathematical understanding through active manipulation of materials and social interaction. Number sense research emphasizes the importance of subitizing, cardinality understanding, and pattern recognition as foundational skills. Sociocultural approaches highlight the role of mathematical language, cultural tools, and guided participation in developing numerical competence. Problem-solving frameworks encourage multiple strategies and representations, supporting flexible mathematical thinking. Play-based approaches connect abstract mathematical concepts to concrete, meaningful experiences.</p>
 
     <h4>Resources and Digital Technology</h4>
-    <p>Counting collections, number lines, base-ten manipulatives, pattern blocks, measuring tools (rulers, scales), and geometric shapes. Games for sorting, matching and estimation. Digital tools: interactive number apps, virtual manipulatives and simple spreadsheet tools for older children. Visual supports and real objects (food, blocks) help concretise abstract concepts. Provide labelled math stations and challenge cards for differentiated practice.</p>
+    <p>Essential materials include counting collections, manipulatives (blocks, bears, cubes), number lines, pattern blocks, measuring tools (rulers, scales, timers), and geometric shapes. Games for sorting, matching, and estimation support conceptual development. Digital tools include interactive counting apps, virtual manipulatives, simple graphing tools, and measurement apps for older children. Real-world objects (food items, natural materials) help connect mathematical concepts to everyday experiences. Provide organized math stations with labeled materials and differentiated challenge cards.</p>
 
     <h4>Developmental Progression</h4>
-    <p>Learning experiences progress from basic sensory exploration of quantity for infants through concrete counting for toddlers, problem-solving with manipulatives for preschoolers, to abstract mathematical thinking for early primary students. Each stage builds upon previous mathematical concepts while introducing new challenges appropriate to cognitive development. Assessment focuses on mathematical reasoning, problem-solving strategies, and conceptual understanding.</p>
+    <p>Learning experiences progress from basic quantity exploration for infants through concrete counting and sorting for toddlers, pattern recognition and simple problem-solving for preschoolers, to abstract mathematical reasoning and formal operations for early primary students. Each stage builds upon previous mathematical understandings while introducing new challenges appropriate to cognitive development. Assessment focuses on mathematical reasoning processes, problem-solving strategies, and conceptual understanding rather than computational accuracy.</p>
 
     <h4>Integration Across Curriculum</h4>
-    <p>Mathematics naturally integrates with science (measurement, data analysis), art (patterns, geometry), literacy (mathematical vocabulary), and daily routines (time, counting). This interdisciplinary approach reinforces mathematical concepts while providing authentic contexts for applying numerical thinking and problem-solving skills across multiple domains.</p>
+    <p>Mathematics naturally integrates with science (measurement, data collection, analysis), art (patterns, symmetry, geometric shapes), literacy (mathematical vocabulary, word problems), and daily routines (time, measurement, counting). This interdisciplinary approach reinforces mathematical concepts while providing authentic, meaningful contexts for applying numerical thinking and problem-solving skills across multiple domains of learning and development.</p>
   `;
 
   return (
@@ -129,7 +100,7 @@ const MathematicsNumeracy = () => {
       {/* Page Header */}
       <section className="bg-gradient-to-br from-rose-400 to-rose-600 text-white section-padding relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dots opacity-30"></div>
-        <div className="container-custom relative z-10" ref={headerRef}>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="flex items-center justify-center gap-4 text-5xl font-bold mb-6 text-white">
               <FiGrid size={48} />
@@ -145,7 +116,7 @@ const MathematicsNumeracy = () => {
       {/* Main Content */}
       <div className="container-custom section-padding">
         {/* Three Core Sections */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16" ref={sectionsRef}>
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <div className="card card-hover border-t-4 border-red-500">
             <div className="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
               ~100 words
@@ -155,7 +126,7 @@ const MathematicsNumeracy = () => {
               Importance
             </h3>
             <p>
-              Mathematics early experiences build number sense, spatial reasoning, measurement understanding and problem solving. Hands-on play with counting, sorting, patterning and measurement develops conceptual understanding and supports later formal maths. Numeracy is embedded across daily routines (snack time, block play) and through purposeful games that promote estimation, comparison and reasoning. Encouraging mathematical talk and modelling strategies supports flexible thinking and fosters confidence with quantitative concepts.
+              Mathematics education in early childhood builds foundational number sense, spatial reasoning, measurement understanding, and problem-solving skills through hands-on exploration and play. Young children naturally engage with mathematical concepts through counting, sorting, patterning, and measuring activities embedded in daily routines and purposeful play experiences. Mathematical learning supports logical thinking, pattern recognition, and analytical skills that transfer across domains. Early numeracy experiences foster confidence with quantitative concepts and prepare children for formal mathematical instruction.
             </p>
           </div>
 
@@ -165,7 +136,7 @@ const MathematicsNumeracy = () => {
             </div>
             <h3 className="text-red-700 mb-4">Theories & Perspectives</h3>
             <p>
-              Constructivist approaches (Piaget) show that children build mathematical understanding through interaction with materials and peers. Sociocultural theories emphasise guided participation, language and cultural tools for counting and problem solving. Number sense frameworks prioritise subitising, cardinality and pattern recognition. Problem-solving models encourage heuristic strategies: act, represent, check. Playful, context-rich tasks support transfer to abstract representations and formal notation as children mature.
+              Piaget's constructivist theory demonstrates that children build mathematical understanding through active manipulation of materials and social interaction. Number sense research emphasizes the importance of subitizing, cardinality understanding, and pattern recognition as foundational skills. Sociocultural approaches highlight the role of mathematical language, cultural tools, and guided participation in developing numerical competence. Problem-solving frameworks encourage multiple strategies and representations, supporting flexible mathematical thinking. Play-based approaches connect abstract mathematical concepts to concrete, meaningful experiences.
             </p>
           </div>
 
@@ -175,13 +146,13 @@ const MathematicsNumeracy = () => {
             </div>
             <h3 className="text-red-700 mb-4">Resources & Digital Tech</h3>
             <p>
-              Counting collections, number lines, base-ten manipulatives, pattern blocks, measuring tools (rulers, scales), and geometric shapes. Games for sorting, matching and estimation. Digital tools: interactive number apps, virtual manipulatives and simple spreadsheet tools for older children. Visual supports and real objects (food, blocks) help concretise abstract concepts. Provide labelled math stations and challenge cards for differentiated practice.
+              Essential materials include counting collections, manipulatives (blocks, bears, cubes), number lines, pattern blocks, measuring tools (rulers, scales, timers), and geometric shapes. Games for sorting, matching, and estimation support conceptual development. Digital tools include interactive counting apps, virtual manipulatives, simple graphing tools, and measurement apps for older children. Real-world objects (food items, natural materials) help connect mathematical concepts to everyday experiences. Provide organized math stations with labeled materials and differentiated challenge cards.
             </p>
           </div>
         </div>
 
         {/* Learning Experiences Section */}
-        <section className="mb-16" ref={experiencesRef}>
+        <section className="mb-16">
           <h2 className="text-center text-3xl font-bold text-gray-800 mb-12">
             Learning Experiences by Age Group
           </h2>
@@ -234,7 +205,7 @@ const MathematicsNumeracy = () => {
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
             Educational videos demonstrating mathematics and numeracy activities for early childhood development.
           </p>
-                              <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-xl p-4 shadow-sm border">
               <h3 className="text-lg font-semibold mb-3 text-gray-800">Building Mathematical Competencies</h3>
               <div className="aspect-video">

@@ -1,10 +1,11 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 // Components
 import Footer from './components/Footer';
+import LoadingAnimation from './components/LoadingAnimation';
 import Navigation from './components/Navigation';
 
 // Pages
@@ -25,6 +26,10 @@ import Technologies from './pages/Technologies';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+  const location = useLocation();
+
   useEffect(() => {
     // Global GSAP settings
     gsap.config({
@@ -38,34 +43,69 @@ function App() {
       ease: "power2.out"
     });
 
-    // Global page transition setup
-    gsap.set("main", { opacity: 0, y: 30 });
-    gsap.to("main", { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+    // Page transition on route change
+    if (showContent) {
+      gsap.fromTo("main",
+        { opacity: 0, y: 20, scale: 0.98 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          clearProps: "all"
+        }
+      );
+    }
 
-  }, []);
+  }, [location, showContent]);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    setTimeout(() => {
+      setShowContent(true);
+      gsap.fromTo("main",
+        { opacity: 0, y: 30, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          clearProps: "all"
+        }
+      );
+    }, 100);
+  };
 
   return (
     <div className="App">
-      <Navigation />
+      {isLoading && <LoadingAnimation onComplete={handleLoadingComplete} />}
 
-      <main className="min-h-screen">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/art" element={<Art />} />
-          <Route path="/drama-puppetry" element={<DramaPuppetry />} />
-          <Route path="/movement-music" element={<MovementMusic />} />
-          <Route path="/language-literacy" element={<LanguageLiteracy />} />
-          <Route path="/science" element={<Science />} />
-          <Route path="/engineering" element={<Engineering />} />
-          <Route path="/technologies" element={<Technologies />} />
-          <Route path="/mathematics-numeracy" element={<MathematicsNumeracy />} />
-          <Route path="/humanities-social-sciences" element={<HumanitiesSocialSciences />} />
-          <Route path="/integrated-curriculum" element={<IntegratedCurriculum />} />
-          <Route path="/references" element={<References />} />
-        </Routes>
-      </main>
+      {showContent && (
+        <>
+          <Navigation />
 
-      <Footer />
+          <main className="min-h-screen">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/art" element={<Art />} />
+              <Route path="/drama-puppetry" element={<DramaPuppetry />} />
+              <Route path="/movement-music" element={<MovementMusic />} />
+              <Route path="/language-literacy" element={<LanguageLiteracy />} />
+              <Route path="/science" element={<Science />} />
+              <Route path="/engineering" element={<Engineering />} />
+              <Route path="/technologies" element={<Technologies />} />
+              <Route path="/mathematics-numeracy" element={<MathematicsNumeracy />} />
+              <Route path="/humanities-social-sciences" element={<HumanitiesSocialSciences />} />
+              <Route path="/integrated-curriculum" element={<IntegratedCurriculum />} />
+              <Route path="/references" element={<References />} />
+            </Routes>
+          </main>
+
+          <Footer />
+        </>
+      )}
     </div>
   );
 }

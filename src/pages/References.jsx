@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import React, { useEffect, useRef, useState } from 'react';
-import { FiBookOpen, FiChevronDown, FiChevronUp, FiDownload, FiExternalLink, FiFilter, FiSearch } from 'react-icons/fi';
+import { FiBookOpen, FiChevronDown, FiChevronUp, FiDownload, FiExternalLink, FiSearch } from 'react-icons/fi';
 
 // Move references data outside component to avoid ESLint dependency warning
 const referencesData = [
@@ -213,46 +213,6 @@ const References = () => {
                 <span className="w-2 h-2 bg-white/60 rounded-full"></span>
                 <span>Evidence-Based</span>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Search and Filter Section */}
-      <section className="bg-white border-b border-gray-200 sticky top-16 z-40 shadow-sm">
-        <div className="container-custom py-6">
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-            {/* Search Bar */}
-            <div className="relative flex-1 max-w-md">
-              <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search references..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-              />
-            </div>
-
-            {/* Category Filter */}
-            <div className="relative">
-              <FiFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="pl-10 pr-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors bg-white min-w-[200px]"
-              >
-                {categoryOptions.map(option => (
-                  <option key={option} value={option}>
-                    {option === 'all' ? 'All Categories' : option}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Results Count */}
-            <div className="text-gray-600 text-sm">
-              {filteredReferences.length} of {referencesData.length} categories
             </div>
           </div>
         </div>

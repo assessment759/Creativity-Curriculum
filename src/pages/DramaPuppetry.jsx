@@ -1,37 +1,8 @@
-import { gsap } from 'gsap';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { FiClock, FiPlay, FiTarget, FiUsers } from 'react-icons/fi';
 import CollapsibleTranscript from '../components/CollapsibleTranscript';
 
 const DramaPuppetry = () => {
-  const headerRef = useRef(null);
-  const sectionsRef = useRef(null);
-  const experiencesRef = useRef(null);
-
-  useEffect(() => {
-    // Animate page elements on mount
-    if (headerRef.current) {
-      gsap.fromTo(headerRef.current.children,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", delay: 0.3 }
-      );
-    }
-
-    if (sectionsRef.current) {
-      gsap.fromTo(sectionsRef.current.children,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out", delay: 0.8 }
-      );
-    }
-
-    if (experiencesRef.current) {
-      gsap.fromTo(experiencesRef.current.querySelectorAll('.age-group'),
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 0.6, stagger: 0.2, ease: "power2.out", delay: 1.2 }
-      );
-    }
-  }, []);
-
   const learningExperiences = [
     {
       ageGroup: '0-2 years',
@@ -109,19 +80,19 @@ const DramaPuppetry = () => {
 
   const transcriptContent = `
     <h4>Drama & Puppetry in Early Childhood Education</h4>
-    <p>Drama and puppetry build imagination, emotional literacy and social communication. Acting, role play and puppetry allow children to try different perspectives, rehearse social scenarios and develop narrative skills. Such activities support language development (vocabulary, sentence building), nonverbal communication, turn-taking and empathy as children embody characters and negotiate roles. Drama is an ideal vehicle for literacy, social studies and community engagement — enabling deeper engagement with texts and social issues through active exploration and embodiment. Puppetry lowers performance pressure and allows shy children to express ideas through an intermediary.</p>
+    <p>Drama and puppetry provide powerful tools for developing imagination, emotional literacy, and social communication skills in young children. Through role-play, storytelling, and puppet interactions, children explore different perspectives, rehearse social scenarios, and develop narrative understanding. These activities strengthen language development through vocabulary expansion, sentence construction, and dialogue practice. Drama experiences support emotional development by providing safe spaces to explore feelings and practice empathy. Puppetry offers particular benefits for shy children, allowing them to express ideas through an intermediary character.</p>
 
     <h4>Theoretical Foundations</h4>
-    <p>Role-play maps to Vygotskian ideas of the zone of proximal development: adult scaffolding encourages children to achieve beyond independent capacity. Bruner's narrative construction theory sees storying as central to cognition; Drama therapy and socio-dramatic play research highlight emotional regulation and symbolic rehearsal. Process drama frameworks (O'Toole) and puppet theatre practices provide structured progression: warm-ups, role creation, rehearsal and reflection. Sociocultural and embodied cognition theories support drama as a multimodal space for integrating language, movement and thought.</p>
+    <p>Vygotsky's zone of proximal development theory supports drama as a context where children can achieve beyond their independent capacity through adult scaffolding and peer interaction. Bruner's narrative construction theory emphasizes storytelling as fundamental to human cognition and meaning-making. Drama therapy research demonstrates the emotional regulation benefits of symbolic play and character embodiment. Process drama frameworks provide structured approaches to dramatic learning, emphasizing reflection and meaning-making. Sociocultural theories highlight drama as a multimodal learning space integrating language, movement, and symbolic thinking.</p>
 
     <h4>Resources and Digital Technology</h4>
-    <p>Materials: simple puppets (sock, stick, glove), fabric, masks, props, boxes for stages, and costumes. Puppetry kits and storytelling cards prompt scenarios. Recording devices and cameras let children review performances and reflect. Digital story creators, simple audio editors and green-screen apps can extend production. Ensure safe performance area and accessible props. Prepare prompts and scaffolded role cards for younger groups; for older children include script templates and basic stagecraft vocabulary.</p>
+    <p>Basic materials include simple puppets (sock, stick, finger puppets), fabric scraps, masks, props, costume pieces, and cardboard boxes for puppet theaters. Storytelling cards and picture books provide narrative prompts. Recording devices and cameras enable children to review and reflect on performances. Digital tools include simple video editing apps, digital storytelling platforms, and green-screen technology for older children. Ensure safe performance spaces with adequate room for movement and accessible storage for materials and props.</p>
 
     <h4>Developmental Progression</h4>
-    <p>Learning experiences progress from simple puppet interactions for infants through guided role-play for toddlers, character development for preschoolers, to complex theatrical productions for early primary students. Each stage builds upon previous skills while introducing new challenges appropriate to cognitive and social development. Assessment focuses on creative expression, collaboration, and communication skills.</p>
+    <p>Learning experiences progress from simple puppet interactions for infants through guided role-play for toddlers, character development and simple performances for preschoolers, to complex script writing and theatrical productions for early primary students. Each stage builds upon previous skills while introducing new challenges appropriate to cognitive, language, and social development. Assessment focuses on creative expression, collaborative skills, communication abilities, and emotional understanding.</p>
 
     <h4>Integration Across Curriculum</h4>
-    <p>Drama and puppetry naturally integrate with literacy (storytelling, vocabulary), social studies (community roles, historical events), and emotional learning (empathy, perspective-taking). This interdisciplinary approach reinforces learning while providing opportunities for creative expression and social skill development through collaborative performance experiences.</p>
+    <p>Drama and puppetry naturally integrate with literacy (storytelling, vocabulary development, character analysis), social studies (community helpers, historical events, cultural traditions), and emotional learning (empathy, perspective-taking, conflict resolution). This interdisciplinary approach reinforces learning while providing authentic opportunities for creative expression and social skill development through collaborative performance experiences.</p>
   `;
 
   return (
@@ -129,7 +100,7 @@ const DramaPuppetry = () => {
       {/* Page Header */}
       <section className="bg-gradient-to-br from-violet-400 to-violet-600 text-white section-padding relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dots opacity-30"></div>
-        <div className="container-custom relative z-10" ref={headerRef}>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="flex items-center justify-center gap-4 text-5xl font-bold mb-6 text-white">
               <FiPlay size={48} />
@@ -145,7 +116,7 @@ const DramaPuppetry = () => {
       {/* Main Content */}
       <div className="container-custom section-padding">
         {/* Three Core Sections */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16" ref={sectionsRef}>
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <div className="card card-hover border-t-4 border-purple-500">
             <div className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
               ~100 words
@@ -155,7 +126,7 @@ const DramaPuppetry = () => {
               Importance
             </h3>
             <p>
-              Drama and puppetry build imagination, emotional literacy and social communication. Acting, role play and puppetry allow children to try different perspectives, rehearse social scenarios and develop narrative skills. Such activities support language development (vocabulary, sentence building), nonverbal communication, turn-taking and empathy as children embody characters and negotiate roles. Drama is an ideal vehicle for literacy, social studies and community engagement — enabling deeper engagement with texts and social issues through active exploration and embodiment. Puppetry lowers performance pressure and allows shy children to express ideas through an intermediary.
+              Drama and puppetry provide powerful tools for developing imagination, emotional literacy, and social communication skills in young children. Through role-play, storytelling, and puppet interactions, children explore different perspectives, rehearse social scenarios, and develop narrative understanding. These activities strengthen language development through vocabulary expansion, sentence construction, and dialogue practice. Drama experiences support emotional development by providing safe spaces to explore feelings and practice empathy. Puppetry offers particular benefits for shy children, allowing them to express ideas through an intermediary character.
             </p>
           </div>
 
@@ -165,7 +136,7 @@ const DramaPuppetry = () => {
             </div>
             <h3 className="text-purple-700 mb-4">Theories & Perspectives</h3>
             <p>
-              Role-play maps to Vygotskian ideas of the zone of proximal development: adult scaffolding encourages children to achieve beyond independent capacity. Bruner's narrative construction theory sees storying as central to cognition; Drama therapy and socio-dramatic play research highlight emotional regulation and symbolic rehearsal. Process drama frameworks (O'Toole) and puppet theatre practices provide structured progression: warm-ups, role creation, rehearsal and reflection. Sociocultural and embodied cognition theories support drama as a multimodal space for integrating language, movement and thought.
+              Vygotsky's zone of proximal development theory supports drama as a context where children can achieve beyond their independent capacity through adult scaffolding and peer interaction. Bruner's narrative construction theory emphasizes storytelling as fundamental to human cognition and meaning-making. Drama therapy research demonstrates the emotional regulation benefits of symbolic play and character embodiment. Process drama frameworks provide structured approaches to dramatic learning, emphasizing reflection and meaning-making. Sociocultural theories highlight drama as a multimodal learning space integrating language, movement, and symbolic thinking.
             </p>
           </div>
 
@@ -175,13 +146,13 @@ const DramaPuppetry = () => {
             </div>
             <h3 className="text-purple-700 mb-4">Resources & Digital Tech</h3>
             <p>
-              Materials: simple puppets (sock, stick, glove), fabric, masks, props, boxes for stages, and costumes. Puppetry kits and storytelling cards prompt scenarios. Recording devices and cameras let children review performances and reflect. Digital story creators, simple audio editors and green-screen apps can extend production. Ensure safe performance area and accessible props. Prepare prompts and scaffolded role cards for younger groups; for older children include script templates and basic stagecraft vocabulary.
+              Basic materials include simple puppets (sock, stick, finger puppets), fabric scraps, masks, props, costume pieces, and cardboard boxes for puppet theaters. Storytelling cards and picture books provide narrative prompts. Recording devices and cameras enable children to review and reflect on performances. Digital tools include simple video editing apps, digital storytelling platforms, and green-screen technology for older children. Ensure safe performance spaces with adequate room for movement and accessible storage for materials and props.
             </p>
           </div>
         </div>
 
         {/* Learning Experiences Section */}
-        <section className="mb-16" ref={experiencesRef}>
+        <section className="mb-16">
           <h2 className="text-center text-3xl font-bold text-gray-800 mb-12">
             Learning Experiences by Age Group
           </h2>
@@ -234,7 +205,7 @@ const DramaPuppetry = () => {
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
             Educational videos demonstrating drama and puppetry activities for early childhood development.
           </p>
-                                        <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-xl p-4 shadow-sm border">
               <h3 className="text-lg font-semibold mb-3 text-gray-800">Teaching with Puppets for Beginners</h3>
               <div className="aspect-video">

@@ -1,37 +1,8 @@
-import { gsap } from 'gsap';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { FiClock, FiEdit3, FiTarget, FiUsers } from 'react-icons/fi';
 import CollapsibleTranscript from '../components/CollapsibleTranscript';
 
 const Art = () => {
-  const headerRef = useRef(null);
-  const sectionsRef = useRef(null);
-  const experiencesRef = useRef(null);
-
-  useEffect(() => {
-    // Animate page elements on mount
-    if (headerRef.current) {
-      gsap.fromTo(headerRef.current.children,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", delay: 0.3 }
-      );
-    }
-
-    if (sectionsRef.current) {
-      gsap.fromTo(sectionsRef.current.children,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out", delay: 0.8 }
-      );
-    }
-
-    if (experiencesRef.current) {
-      gsap.fromTo(experiencesRef.current.querySelectorAll('.age-group'),
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 0.6, stagger: 0.2, ease: "power2.out", delay: 1.2 }
-      );
-    }
-  }, []);
-
   const learningExperiences = [
     {
       ageGroup: '0-2 years',
@@ -129,7 +100,7 @@ const Art = () => {
       {/* Page Header */}
       <section className="bg-gradient-to-br from-pink-400 to-pink-600 text-white section-padding relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dots opacity-30"></div>
-        <div className="container-custom relative z-10" ref={headerRef}>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="flex items-center justify-center gap-4 text-5xl font-bold mb-6 text-white">
               <FiEdit3 size={48} />
@@ -145,7 +116,7 @@ const Art = () => {
       {/* Main Content */}
       <div className="container-custom section-padding">
         {/* Three Core Sections */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16" ref={sectionsRef}>
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <div className="card card-hover border-t-4 border-pink-500">
             <div className="inline-block bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
               ~100 words
@@ -196,7 +167,7 @@ const Art = () => {
         </div>
 
         {/* Learning Experiences Section */}
-        <section className="mb-16" ref={experiencesRef}>
+        <section className="mb-16">
           <h2 className="text-center text-3xl font-bold text-gray-800 mb-12">
             Learning Experiences by Age Group
           </h2>
@@ -249,7 +220,7 @@ const Art = () => {
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
             Educational videos demonstrating art activities and techniques for early childhood development.
           </p>
-                                                            <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-xl p-4 shadow-sm border">
               <h3 className="text-lg font-semibold mb-3 text-gray-800">Famous Art and Artists for Kids</h3>
               <div className="aspect-video">

@@ -1,5 +1,4 @@
-import { gsap } from 'gsap';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { FiBookOpen, FiCheckCircle, FiEdit3, FiFileText, FiGrid, FiLayers, FiMonitor, FiMusic, FiPlay, FiSearch, FiSettings, FiUsers } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import CollapsibleTranscript from '../components/CollapsibleTranscript';
@@ -18,27 +17,6 @@ const curriculumAreas = [
 ];
 
 const Home = () => {
-  const heroRef = useRef(null);
-  const cardsRef = useRef(null);
-
-  useEffect(() => {
-    // Hero animation
-    if (heroRef.current) {
-      gsap.fromTo(heroRef.current.children,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", delay: 0.3 }
-      );
-    }
-
-    // Cards animation
-    if (cardsRef.current) {
-      gsap.fromTo(cardsRef.current.children,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power2.out", delay: 0.6 }
-      );
-    }
-  }, []);
-
   const transcriptContent = `
     <h4>Early Childhood Creativity Curriculum Framework</h4>
     <p>This website presents a creative, play-based curriculum framework with ten focused pages: Art; Drama & Puppetry; Movement & Music; Language & Literacy; Science; Engineering; Technologies; Mathematics & Numeracy; Humanities & Social Sciences; and Integrated Curriculum. Each page includes three short pedagogical sections — Importance, Theories, and Resources — plus eight practical learning experiences split across the age ranges 0–2, 2–3, 3–5, and 6–8 (two examples per range).</p>
@@ -60,32 +38,94 @@ const Home = () => {
   `;
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-500 to-primary-700 text-white section-padding relative overflow-hidden">
-        <div className="absolute inset-0 bg-pattern-dots opacity-30"></div>
-        <div className="container-custom relative z-10" ref={heroRef}>
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl font-bold mb-6 text-white">
-              Early Childhood Creativity Curriculum
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2186&q=80')`
+          }}
+        />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/85 to-primary-600/80"></div>
+
+        {/* Animated Pattern Overlay */}
+        <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>
+
+        {/* Floating Shapes */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-yellow-400/20 rounded-full blur-xl animate-bounce-slow"></div>
+          <div className="absolute top-40 right-32 w-24 h-24 bg-pink-400/20 rounded-full blur-lg animate-pulse"></div>
+          <div className="absolute bottom-32 left-40 w-40 h-40 bg-green-400/20 rounded-full blur-2xl animate-float"></div>
+          <div className="absolute bottom-20 right-20 w-28 h-28 bg-purple-400/20 rounded-full blur-xl animate-bounce-slow"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 container-custom px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-5xl mx-auto">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-8 border border-white/20">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              Ages 0-8 Years • Play-Based Learning
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+              Early Childhood
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400">
+                Creativity Curriculum
+              </span>
             </h1>
-            <p className="text-xl opacity-90 mb-8 leading-relaxed">
-              Comprehensive play-based learning framework across 10 curriculum areas
-              for children aged 0-8 years
+
+            {/* Subheading */}
+            <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto font-light">
+              Comprehensive play-based learning framework across
+              <span className="font-semibold text-yellow-300"> 10 curriculum areas </span>
+              designed to nurture creativity, critical thinking, and joyful learning
             </p>
+
+            {/* Stats */}
+            <div className="flex flex-wrap justify-center gap-8 mb-12">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-yellow-400">10</div>
+                <div className="text-white/80 text-sm">Curriculum Areas</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-pink-400">4</div>
+                <div className="text-white/80 text-sm">Age Groups</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-400">80+</div>
+                <div className="text-white/80 text-sm">Learning Activities</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-400">500+</div>
+                <div className="text-white/80 text-sm">Words Per Page</div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link to="#curriculum" className="btn btn-secondary">
-                <FiBookOpen />
-                Explore Curriculum
-              </Link>
-              <Link to="#videos" className="btn bg-white/20 hover:bg-white/30 text-white border-white/30">
-                <FiPlay />
-                View Videos
-              </Link>
-              <Link to="/references" className="btn bg-white/20 hover:bg-white/30 text-white border-white/30">
-                <FiFileText />
+              <Link
+                to="/references"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+              >
+                <FiFileText className="text-xl" />
                 References
               </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 animate-bounce">
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-sm">Scroll to explore</span>
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -131,7 +171,7 @@ const Home = () => {
           <h2 className="text-center text-3xl font-bold text-gray-800 mb-12">
             Curriculum Areas
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" ref={cardsRef}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {curriculumAreas.map((area) => (
               <Link
                 key={area.path}

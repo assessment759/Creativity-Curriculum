@@ -1,37 +1,8 @@
-import { gsap } from 'gsap';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { FiClock, FiSearch, FiTarget, FiUsers } from 'react-icons/fi';
 import CollapsibleTranscript from '../components/CollapsibleTranscript';
 
 const Science = () => {
-  const headerRef = useRef(null);
-  const sectionsRef = useRef(null);
-  const experiencesRef = useRef(null);
-
-  useEffect(() => {
-    // Animate page elements on mount
-    if (headerRef.current) {
-      gsap.fromTo(headerRef.current.children,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out", delay: 0.3 }
-      );
-    }
-
-    if (sectionsRef.current) {
-      gsap.fromTo(sectionsRef.current.children,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out", delay: 0.8 }
-      );
-    }
-
-    if (experiencesRef.current) {
-      gsap.fromTo(experiencesRef.current.querySelectorAll('.age-group'),
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 0.6, stagger: 0.2, ease: "power2.out", delay: 1.2 }
-      );
-    }
-  }, []);
-
   const learningExperiences = [
     {
       ageGroup: '0-2 years',
@@ -56,16 +27,16 @@ const Science = () => {
       label: 'Young Toddlers',
       experiences: [
         {
-          title: 'Planting Cups',
-          description: 'Toddlers plant seeds in cups, water them and observe growth, practising routines and noticing change over time.',
+          title: 'Light & Shadow',
+          description: 'Toddlers use torches and objects to explore light and shadows on walls, developing cause-effect understanding and observation skills.',
           duration: '20-25 min',
           groupSize: 'Small group (3-4)'
         },
         {
-          title: 'Shadow Play',
-          description: 'Children use flashlights to create and move shadows, learning about light and cause-effect through playful experimentation.',
+          title: 'Magnet Discovery',
+          description: 'Simple magnet play with metal and non-metal objects builds categorisation skills and understanding of invisible forces.',
           duration: '15-20 min',
-          groupSize: 'Small group (4-6)'
+          groupSize: 'Pairs'
         }
       ]
     },
@@ -74,15 +45,15 @@ const Science = () => {
       label: 'Preschoolers',
       experiences: [
         {
-          title: 'Simple Circuits',
-          description: 'Groups use snap-together circuits to light bulbs and learn basic electricity concepts via guided discovery.',
+          title: 'Growing Seeds',
+          description: 'Children plant seeds, predict outcomes and observe growth, documenting changes to build scientific observation and prediction skills.',
           duration: '30-40 min',
           groupSize: 'Small group (4-6)'
         },
         {
-          title: 'Life-cycle Study',
-          description: 'Children observe insect or plant life cycles, document progression and create visual timelines to explain change.',
-          duration: '45-60 min',
+          title: 'Weather Station',
+          description: 'Children create simple weather tracking tools and record daily observations, learning about measurement and patterns.',
+          duration: '25-35 min',
           groupSize: 'Small group (4-6)'
         }
       ]
@@ -92,16 +63,16 @@ const Science = () => {
       label: 'Early Primary',
       experiences: [
         {
-          title: 'Environmental Investigation',
-          description: 'Students collect data on local ecosystems (e.g., biodiversity counts), analyse findings and propose conservation actions.',
-          duration: '90-120 min',
-          groupSize: 'Small group (4-6)'
-        },
-        {
-          title: 'Engineering Challenge',
-          description: 'Teams design and test bridges or shelters using given materials, iterating on design and explaining results with evidence.',
+          title: 'Simple Experiments',
+          description: 'Students design and conduct simple tests with variables and controls, learning scientific method and documentation.',
           duration: '60-90 min',
           groupSize: 'Small group (3-4)'
+        },
+        {
+          title: 'Nature Journal',
+          description: 'Students observe and document local wildlife and plants over time, developing systematic observation and recording skills.',
+          duration: '45-60 min',
+          groupSize: 'Individual/Pairs'
         }
       ]
     }
@@ -109,19 +80,19 @@ const Science = () => {
 
   const transcriptContent = `
     <h4>Science in Early Childhood Education</h4>
-    <p>Science provokes wonder, inquiry and evidence-based reasoning. Early science experiences foster observation, prediction, testing and reflection — foundational scientific skills that transfer across domains. Hands-on investigations build curiosity, vocabulary for describing phenomena, and understanding of cause and effect. Science activities also support numeracy (measuring, comparing), language (explanations) and social skills (collaborative investigations). Offering age-appropriate materials and predictable investigative routines helps children develop hypotheses, systematically test ideas and communicate findings.</p>
+    <p>Science education in early years builds curiosity, observation and reasoning skills through hands-on exploration of natural phenomena. Young children are natural scientists — questioning, testing and discovering. Science experiences support cognitive development by encouraging prediction, hypothesis formation and systematic observation. Inquiry-based learning develops critical thinking, problem-solving and communication skills. Science experiences also support mathematical concepts (measurement, counting, patterns) and literacy (vocabulary, documentation, discussion). Early science fosters a lifelong love of learning and provides foundational concepts for later formal science education.</p>
 
     <h4>Theoretical Foundations</h4>
-    <p>Inquiry-based learning (Kuhlthau, Bruner) emphasises active exploration and scaffolding. Constructivist approaches (Piaget) indicate children construct knowledge from active engagement; sociocultural frameworks stress guided participation and shared problem solving. Phenomenon-based learning connects science to real world contexts. Children's science benefits from iterative cycles of question → investigate → reflect, and from teacher use of open questions and prompting to extend thinking. Conceptual change research supports targeted misconceptions remediation through hands-on evidence.</p>
+    <p>Piaget's constructivist theory supports hands-on exploration and discovery learning in science. Vygotsky's zone of proximal development guides scaffolded investigations and collaborative inquiry. Inquiry-based learning theory emphasises questioning, testing and reflection over memorisation. Constructivist science pedagogy encourages children to build understanding through direct experience and discussion. Place-based education connects scientific learning to local environments and community resources. The 5E instructional model (Engage, Explore, Explain, Elaborate, Evaluate) provides structure for developmentally appropriate science experiences.</p>
 
     <h4>Resources and Digital Technology</h4>
-    <p>Simple materials: magnifiers, measuring tools, scales, water trays, funnels, magnets and natural collections (leaves, stones). Investigation kits for buoyancy, plant growth, and simple circuits with safe batteries. Recording tools: science journals, cameras, stopwatches and measuring tapes. Digital tools: video microscopes, data logging apps and simulation tools for older children. Safety equipment, labeled storage and clear investigation areas are essential. Use everyday materials for low-cost experiments and encourage outdoor exploration for ecological learning.</p>
+    <p>Natural materials (rocks, shells, plants), simple tools (magnifying glasses, measuring tools, balance scales), water and sand tables for experimentation. Safety equipment (goggles, aprons) and documentation tools (cameras, clipboards, journals). Digital tools include simple data collection apps, digital microscopes for older children, and weather tracking tools. Nature guides, science picture books and exploration kits extend learning. Ensure safe experimentation areas, accessible storage for materials and outdoor learning spaces for authentic scientific investigation.</p>
 
     <h4>Developmental Progression</h4>
-    <p>Learning experiences progress from basic sensory exploration for infants through guided investigation for toddlers, hypothesis testing for preschoolers, to formal scientific inquiry for early primary students. Each stage builds upon previous observational skills while introducing new challenges appropriate to cognitive and scientific development. Assessment focuses on inquiry skills, scientific thinking, and collaborative investigation abilities.</p>
+    <p>Learning experiences progress from basic sensory exploration for infants through simple investigations for toddlers, structured observations for preschoolers, to systematic experiments for early primary students. Each stage builds upon previous scientific thinking skills while introducing new challenges appropriate to cognitive development. Assessment focuses on inquiry skills, scientific reasoning, and individual growth in observation and communication abilities.</p>
 
     <h4>Integration Across Curriculum</h4>
-    <p>Science naturally integrates with mathematics (measurement, data analysis), literacy (recording observations, explanations), art (scientific drawing), and social studies (environmental awareness). This interdisciplinary approach reinforces scientific concepts while providing multiple pathways for understanding and expressing scientific thinking through authentic inquiry experiences.</p>
+    <p>Science naturally integrates with mathematics (measurement, data collection), literacy (vocabulary, documentation), art (scientific drawing), and social studies (environmental awareness). This interdisciplinary approach reinforces scientific concepts while providing authentic contexts for applying knowledge and skills across multiple domains through hands-on investigation and discovery.</p>
   `;
 
   return (
@@ -129,7 +100,7 @@ const Science = () => {
       {/* Page Header */}
       <section className="bg-gradient-to-br from-lime-400 to-lime-600 text-white section-padding relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dots opacity-30"></div>
-        <div className="container-custom relative z-10" ref={headerRef}>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="flex items-center justify-center gap-4 text-5xl font-bold mb-6 text-white">
               <FiSearch size={48} />
@@ -145,43 +116,43 @@ const Science = () => {
       {/* Main Content */}
       <div className="container-custom section-padding">
         {/* Three Core Sections */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16" ref={sectionsRef}>
-          <div className="card card-hover border-t-4 border-lime-500">
-            <div className="inline-block bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="card card-hover border-t-4 border-green-500">
+            <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
               ~100 words
             </div>
-            <h3 className="text-lime-700 mb-4 flex items-center gap-2">
+            <h3 className="text-green-700 mb-4 flex items-center gap-2">
               <FiSearch />
               Importance
             </h3>
             <p>
-              Science provokes wonder, inquiry and evidence-based reasoning. Early science experiences foster observation, prediction, testing and reflection — foundational scientific skills that transfer across domains. Hands-on investigations build curiosity, vocabulary for describing phenomena, and understanding of cause and effect. Science activities also support numeracy (measuring, comparing), language (explanations) and social skills (collaborative investigations). Offering age-appropriate materials and predictable investigative routines helps children develop hypotheses, systematically test ideas and communicate findings.
+              Science education in early years builds curiosity, observation and reasoning skills through hands-on exploration of natural phenomena. Young children are natural scientists — questioning, testing and discovering. Science experiences support cognitive development by encouraging prediction, hypothesis formation and systematic observation. Inquiry-based learning develops critical thinking, problem-solving and communication skills. Science experiences also support mathematical concepts (measurement, counting, patterns) and literacy (vocabulary, documentation, discussion).
             </p>
           </div>
 
-          <div className="card card-hover border-t-4 border-lime-500">
-            <div className="inline-block bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
+          <div className="card card-hover border-t-4 border-green-500">
+            <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
               ~100 words
             </div>
-            <h3 className="text-lime-700 mb-4">Theories & Perspectives</h3>
+            <h3 className="text-green-700 mb-4">Theories & Perspectives</h3>
             <p>
-              Inquiry-based learning (Kuhlthau, Bruner) emphasises active exploration and scaffolding. Constructivist approaches (Piaget) indicate children construct knowledge from active engagement; sociocultural frameworks stress guided participation and shared problem solving. Phenomenon-based learning connects science to real world contexts. Children's science benefits from iterative cycles of question → investigate → reflect, and from teacher use of open questions and prompting to extend thinking. Conceptual change research supports targeted misconceptions remediation through hands-on evidence.
+              Piaget's constructivist theory supports hands-on exploration and discovery learning in science. Vygotsky's zone of proximal development guides scaffolded investigations and collaborative inquiry. Inquiry-based learning theory emphasises questioning, testing and reflection over memorisation. Constructivist science pedagogy encourages children to build understanding through direct experience and discussion. Place-based education connects scientific learning to local environments and community resources. The 5E instructional model (Engage, Explore, Explain, Elaborate, Evaluate) provides structure for developmentally appropriate science experiences.
             </p>
           </div>
 
-          <div className="card card-hover border-t-4 border-lime-500">
-            <div className="inline-block bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
+          <div className="card card-hover border-t-4 border-green-500">
+            <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium mb-4">
               ~100 words
             </div>
-            <h3 className="text-lime-700 mb-4">Resources & Digital Tech</h3>
+            <h3 className="text-green-700 mb-4">Resources & Digital Tech</h3>
             <p>
-              Simple materials: magnifiers, measuring tools, scales, water trays, funnels, magnets and natural collections (leaves, stones). Investigation kits for buoyancy, plant growth, and simple circuits with safe batteries. Recording tools: science journals, cameras, stopwatches and measuring tapes. Digital tools: video microscopes, data logging apps and simulation tools for older children. Safety equipment, labeled storage and clear investigation areas are essential. Use everyday materials for low-cost experiments and encourage outdoor exploration for ecological learning.
+              Natural materials (rocks, shells, plants), simple tools (magnifying glasses, measuring tools, balance scales), water and sand tables for experimentation. Safety equipment (goggles, aprons) and documentation tools (cameras, clipboards, journals). Digital tools include simple data collection apps, digital microscopes for older children, and weather tracking tools. Nature guides, science picture books and exploration kits extend learning. Ensure safe experimentation areas, accessible storage for materials and outdoor learning spaces.
             </p>
           </div>
         </div>
 
         {/* Learning Experiences Section */}
-        <section className="mb-16" ref={experiencesRef}>
+        <section className="mb-16">
           <h2 className="text-center text-3xl font-bold text-gray-800 mb-12">
             Learning Experiences by Age Group
           </h2>
