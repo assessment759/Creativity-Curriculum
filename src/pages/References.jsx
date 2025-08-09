@@ -135,8 +135,6 @@ const referencesData = [
 const References = () => {
   const headerRef = useRef(null);
   const contentRef = useRef(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
   const [expandedCategories, setExpandedCategories] = useState({});
 
   useEffect(() => {
@@ -163,25 +161,12 @@ const References = () => {
     setExpandedCategories(initialExpanded);
   }, []);
 
-  // Filter references based on search and category
-  const filteredReferences = referencesData.filter(ref => {
-    const matchesSearch = searchTerm === '' ||
-      ref.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      ref.citations.some(citation => citation.toLowerCase().includes(searchTerm.toLowerCase()));
-
-    const matchesCategory = selectedCategory === 'all' || ref.category === selectedCategory;
-
-    return matchesSearch && matchesCategory;
-  });
-
   const toggleCategory = (index) => {
     setExpandedCategories(prev => ({
       ...prev,
       [index]: !prev[index]
     }));
   };
-
-  const categoryOptions = ['all', ...referencesData.map(ref => ref.category)];
 
   return (
     <div className="min-h-screen pt-20 bg-gradient-to-br from-slate-50 via-white to-primary-50">
@@ -280,7 +265,7 @@ const References = () => {
 
         {/* References by Category */}
         <div className="max-w-6xl mx-auto">
-          {filteredReferences.length === 0 ? (
+          {referencesData.length === 0 ? (
             <div className="text-center py-12">
               <FiSearch className="mx-auto text-6xl text-gray-300 mb-4" />
               <h3 className="text-xl font-semibold text-gray-600 mb-2">No References Found</h3>
@@ -288,7 +273,7 @@ const References = () => {
             </div>
           ) : (
             <div className="grid gap-8">
-              {filteredReferences.map((category, index) => (
+              {referencesData.map((category, index) => (
                 <div key={category.category} className="group">
                   <div className="bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 border border-gray-100 overflow-hidden">
                                          {/* Category Header */}
